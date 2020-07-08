@@ -12,5 +12,7 @@ if __name__ == '__main__':
     if sys.path[0] == '':
         del sys.path[0]
 
-    from ipykernel import kernelapp as app
-    app.launch_new_instance()
+    from ipykernel.kernelapp import IPKernelApp
+    from ipykernel.readonly_pythonkernel import ReadOnlyKernel
+
+    IPKernelApp.launch_instance(kernel_class=ReadOnlyKernel)
